@@ -54,3 +54,13 @@ Este repositório está configurado com **Infraestrutura como Código (IaC)** na
 3. No Dashboard do Render, clique no botão superior direito **"New +" -> "Blueprint"**.
 4. Conecte sua conta do GitHub, autorize o acesso e selecione este repositório.
 5. Magia Efetivada! ✨ O Render detectará automaticamente o arquivo `render.yaml`, fará o download e build rápido do Python 3.11, instalará o FastAPI com o Uvicorn e botará a sua API no ar com HTTPS em um endereço global - 100% gratuito.
+
+## 💎 Deploy na Discloud (API/Site)
+
+Se você utiliza a **Discloud** como sua infraestrutura profissional, este projeto roda nativamente nos planos que suportam Aplicações Web/Sites (Plano Platina ou superior exigido para `type=site` com mínimo de 512MB RAM).
+
+1. Junte todos os arquivos deste repositório num arquivo Compactado (ex: `.zip`). Exclua as pastas `.venv`, `__pycache__` e a de `tasks` para economizar memória (o `requirements.txt` cuidará de tudo lá dentro).
+2. O arquivo oficial de manifesto `discloud.config` já está roteando nativamente para o script `run.py`.
+3. Vá para o [Dashboard da Discloud](https://discloudbot.com/), encontre o painel de "Adicionar App".
+4. Faça o upload do arquivo `.zip` e clique em Deploy.
+5. A Discloud acionará o pacote, rodando o FastAPI por trás de seu túnel na porta `8080`, e entregará sua API perfeitamente escalada na Web pública.
