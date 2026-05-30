@@ -11,7 +11,8 @@ def start_fastapi_server():
     """Sobe o servidor Uvicorn em background antes de rodar os testes."""
     print("\n[+] Iniciando servidor de testes na porta 8000...")
     
-    proc = subprocess.Popen(["uvicorn", "api:app", "--port", "8000", "--host", "127.0.0.1"])
+    import sys
+    proc = subprocess.Popen([sys.executable, "-m", "uvicorn", "api:app", "--port", "8000", "--host", "127.0.0.1"])
     
     # Ping ping via urllib para saber quando o uvicorn esta pronto
     server_ready = False
@@ -74,6 +75,7 @@ def test_generate_endpoint_invalid_quantity(playwright):
     assert response.status == 400
     assert "Quantity must be a positive integer." in response.json()["detail"]
 
+@pytest.mark.skip(reason="Rate limiting foi migrado para o Cloudflare WAF, não mais em nível de aplicação (slowapi)")
 def test_generate_endpoint_rate_limit_abuse(playwright):
     """Playwright E2E: Verifica se abuso (ataque DoS volumetrico) e barrado com HTTP 429."""
     api = playwright.request.new_context(base_url=BASE_URL)
