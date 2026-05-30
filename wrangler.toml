@@ -1,0 +1,11 @@
+name = "gerador-de-imei"
+main = "api.py"
+compatibility_date = "2024-04-05"
+compatibility_flags = ["python_workers"]
+
+# Se não quiser expor a rota para a mesma URL que o frontend (útil se estiver separando):
+# route = "api.seusite.com/*"
+
+[build]
+# O build para python workers é tratado internamente pela própria Cloudflare usando as dependências do requirements.txt ou pyproject.toml
+command = ""

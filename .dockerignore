@@ -1,0 +1,11 @@
+.git
+.gitignore
+.pytest_cache
+.python-version
+.venv
+__pycache__
+tests
+tasks
+*.pyc
+discloud.config
+render.yaml
