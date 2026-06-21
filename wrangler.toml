@@ -1,6 +1,6 @@
 name = "geradordeimei"
 main = "src/api.py"
-compatibility_date = "2025-03-01"
+compatibility_date = "2026-06-01"
 compatibility_flags = ["python_workers", "python_dedicated_snapshot"]
 
 # Se não quiser expor a rota para a mesma URL que o frontend (útil se estiver separando):
