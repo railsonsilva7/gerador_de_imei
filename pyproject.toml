@@ -9,11 +9,6 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "fastapi",
-    "idna",
-    "pydantic",
-    "starlette",
-    "urllib3",
-    "uvicorn",
 ]
 
 [dependency-groups]
@@ -26,6 +21,9 @@ dev = [
     "ruff>=0.4.0",
     "workers-py",
     "workers-runtime-sdk",
+    "idna",
+    "urllib3",
+    "uvicorn",
 ]
 
 [build-system]

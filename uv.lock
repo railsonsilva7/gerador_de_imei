@@ -251,43 +251,37 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
-    { name = "idna" },
-    { name = "pydantic" },
-    { name = "starlette" },
-    { name = "urllib3" },
-    { name = "uvicorn" },
 ]
 
 [package.dev-dependencies]
 dev = [
     { name = "bandit" },
+    { name = "idna" },
     { name = "pip-audit" },
     { name = "pytest" },
     { name = "pytest-playwright" },
     { name = "ruff" },
     { name = "slowapi" },
+    { name = "urllib3" },
+    { name = "uvicorn" },
     { name = "workers-py" },
     { name = "workers-runtime-sdk" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "fastapi" },
-    { name = "idna" },
-    { name = "pydantic" },
-    { name = "starlette" },
-    { name = "urllib3" },
-    { name = "uvicorn" },
-]
+requires-dist = [{ name = "fastapi" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "bandit", specifier = ">=1.7.8" },
+    { name = "idna" },
     { name = "pip-audit", specifier = ">=2.7.3" },
     { name = "pytest", specifier = ">=9.0.3" },
     { name = "pytest-playwright", specifier = ">=0.7.2" },
     { name = "ruff", specifier = ">=0.4.0" },
     { name = "slowapi", specifier = ">=0.1.9" },
+    { name = "urllib3" },
+    { name = "uvicorn" },
     { name = "workers-py" },
     { name = "workers-runtime-sdk" },
 ]
