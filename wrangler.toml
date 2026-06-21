@@ -6,6 +6,4 @@ compatibility_flags = ["python_workers"]
 # Se não quiser expor a rota para a mesma URL que o frontend (útil se estiver separando):
 # route = "api.seusite.com/*"
 
-[build]
-# Delegando o processo de build para o Makefile para centralizar as automações
-command = "make cf-build"
+

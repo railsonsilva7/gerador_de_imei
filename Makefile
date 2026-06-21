@@ -54,14 +54,10 @@ clean:
 
 # --- Cloudflare ---
 
-cf-build:
-	@echo "📦 Criando dependências mínimas (requirements.txt) para o Pyodide na Cloudflare..."
-	printf "fastapi\npydantic\nurllib3\n" > requirements.txt
-
-cf-dev: cf-build
+cf-dev:
 	@echo "🔥 Iniciando ambiente de desenvolvimento Cloudflare local..."
-	npx wrangler dev
+	uv run pywrangler dev
 
-cf-deploy: pre-commit-check cf-build
+cf-deploy: pre-commit-check
 	@echo "🚀 Fazendo deploy seguro para a Cloudflare Workers..."
-	npx wrangler deploy
+	uv run pywrangler deploy
