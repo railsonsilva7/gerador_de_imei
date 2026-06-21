@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel
-from workers import WorkerEntrypoint
 from main import generate_imeis
 
 app = FastAPI(title="IMEI Generator API", version="0.1.0")
@@ -42,7 +41,11 @@ def generate_imeis_txt_endpoint(payload: GenerateRequest):
     }
     return PlainTextResponse(content=content, headers=headers)
 
-class Default(WorkerEntrypoint):
-    async def fetch(self, request):
-        import asgi
-        return await asgi.fetch(app, request.js_object, self.env)
+try:
+    from workers import WorkerEntrypoint
+    class Default(WorkerEntrypoint):
+        async def fetch(self, request):
+            import asgi
+            return await asgi.fetch(app, request.js_object, self.env)
+except ImportError:
+    pass
