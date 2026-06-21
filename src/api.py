@@ -1,10 +1,17 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import PlainTextResponse
+import traceback
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import PlainTextResponse, JSONResponse
 from pydantic import BaseModel
 from main import generate_imeis
 
 app = FastAPI(title="IMEI Generator API", version="0.1.0")
 
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc), "traceback": traceback.format_exc()}
+    )
 
 class GenerateRequest(BaseModel):
     prefix: str
