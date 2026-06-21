@@ -1,6 +1,13 @@
-nextjs_frontend/
-tests/
-.venv/
-__pycache__/
+nextjs_frontend
+tests
+.venv
+__pycache__
 *.log
 imeis_generated.txt
+.pytest_cache
+.ruff_cache
+dist
+tasks
+*.lock
+pylock.toml
+pyproject.toml

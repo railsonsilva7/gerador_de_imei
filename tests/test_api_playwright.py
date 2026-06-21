@@ -12,7 +12,7 @@ def start_fastapi_server():
     print("\n[+] Iniciando servidor de testes na porta 8088...")
     
     import sys
-    proc = subprocess.Popen([sys.executable, "-m", "uvicorn", "api:app", "--port", "8088", "--host", "127.0.0.1"])
+    proc = subprocess.Popen([sys.executable, "-m", "uvicorn", "src.api:app", "--port", "8088", "--host", "127.0.0.1"])
     
     # Ping ping via urllib para saber quando o uvicorn esta pronto
     server_ready = False
