@@ -17,6 +17,15 @@ class GenerateRequest(BaseModel):
     prefix: str
     quantity: int = 50000
 
+@app.get("/test")
+def test_get_endpoint():
+    try:
+        imeis = generate_imeis("35390744", 10)
+        return {"imeis": imeis}
+    except Exception as e:
+        import traceback
+        return {"error": str(e), "trace": traceback.format_exc()}
+
 @app.post("/generate")
 def generate_imeis_endpoint(payload: GenerateRequest):
     """Generate a list of IMEIs.
