@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel
+from workers import WorkerEntrypoint
 from main import generate_imeis
 
 app = FastAPI(title="IMEI Generator API", version="0.1.0")
@@ -41,13 +42,7 @@ def generate_imeis_txt_endpoint(payload: GenerateRequest):
     }
     return PlainTextResponse(content=content, headers=headers)
 
-# Ponto de entrada para o Cloudflare Workers
-try:
-    from workers import WorkerEntrypoint
-    import asgi
-
-    class Default(WorkerEntrypoint):
-        async def fetch(self, request):
-            return await asgi.fetch(app, request.js_object, self.env)
-except ImportError:
-    pass # Ignora o erro se não estiver rodando dentro do Cloudflare Workers
+class Default(WorkerEntrypoint):
+    async def fetch(self, request):
+        import asgi
+        return await asgi.fetch(app, request.js_object, self.env)
