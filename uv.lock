@@ -272,12 +272,12 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fastapi", specifier = ">=0.136.1" },
-    { name = "idna", specifier = ">=3.15" },
-    { name = "pydantic", specifier = ">=2.13.3" },
-    { name = "starlette", specifier = ">=1.0.1" },
-    { name = "urllib3", specifier = ">=2.7.0" },
-    { name = "uvicorn", specifier = ">=0.46.0" },
+    { name = "fastapi" },
+    { name = "idna" },
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "urllib3" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata.requires-dev]

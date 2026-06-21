@@ -8,12 +8,12 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.136.1",
-    "idna>=3.15",
-    "pydantic>=2.13.3",
-    "starlette>=1.0.1",
-    "urllib3>=2.7.0",
-    "uvicorn>=0.46.0",
+    "fastapi",
+    "idna",
+    "pydantic",
+    "starlette",
+    "urllib3",
+    "uvicorn",
 ]
 
 [dependency-groups]
