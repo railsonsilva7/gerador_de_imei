@@ -53,6 +53,13 @@ try:
     class Default(WorkerEntrypoint):
         async def fetch(self, request):
             import asgi
-            return await asgi.fetch(app, request.js_object, self.env)
+            import traceback
+            from js import Response, Headers
+            try:
+                return await asgi.fetch(app, request.js_object, self.env)
+            except Exception as e:
+                headers = Headers.new({"content-type": "application/json"}.items())
+                error_body = f'{{"error": "{str(e)}", "trace": {__import__("json").dumps(traceback.format_exc())}}}'
+                return Response.new(error_body, headers=headers, status=500)
 except ImportError:
     pass
