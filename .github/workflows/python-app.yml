@@ -12,6 +12,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: deploy_cloudflare
     steps:
     - uses: actions/checkout@v4
     
