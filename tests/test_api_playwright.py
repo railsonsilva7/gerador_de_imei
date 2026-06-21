@@ -4,15 +4,15 @@ import time
 import urllib.request
 
 # URL base padrao onde a API ira rodar (local)
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "http://127.0.0.1:8088"
 
 @pytest.fixture(scope="session", autouse=True)
 def start_fastapi_server():
     """Sobe o servidor Uvicorn em background antes de rodar os testes."""
-    print("\n[+] Iniciando servidor de testes na porta 8000...")
+    print("\n[+] Iniciando servidor de testes na porta 8088...")
     
     import sys
-    proc = subprocess.Popen([sys.executable, "-m", "uvicorn", "api:app", "--port", "8000", "--host", "127.0.0.1"])
+    proc = subprocess.Popen([sys.executable, "-m", "uvicorn", "api:app", "--port", "8088", "--host", "127.0.0.1"])
     
     # Ping ping via urllib para saber quando o uvicorn esta pronto
     server_ready = False
@@ -27,7 +27,7 @@ def start_fastapi_server():
             
     if not server_ready:
         proc.terminate()
-        pytest.fail("[-] O servidor de testes nao respondeu a tempo na porta 8000.")
+        pytest.fail("[-] O servidor de testes nao respondeu a tempo na porta 8088.")
 
     yield
     
