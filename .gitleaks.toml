@@ -1,0 +1,8 @@
+[allowlist]
+description = "Ignorar chave interna auto-gerada pelo build do Next.js"
+paths = [
+    '''nextjs_frontend/\.next/.*'''
+]
+fingerprints = [
+    "41f3aed09f4ee4a6cc57a8396f5b32bc71b0738a:nextjs_frontend/.next/server/server-reference-manifest.json:generic-api-key:4"
+]

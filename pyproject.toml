@@ -9,7 +9,11 @@ authors = [
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.136.1",
+    "idna>=3.15",
     "pydantic>=2.13.3",
+    "starlette>=1.0.1",
+    "urllib3>=2.7.0",
+    "uvicorn>=0.46.0",
 ]
 
 [dependency-groups]
@@ -17,9 +21,15 @@ dev = [
     "pytest>=9.0.3",
     "pytest-playwright>=0.7.2",
     "slowapi>=0.1.9",
-    "uvicorn>=0.46.0",
+    "bandit>=1.7.8",
+    "pip-audit>=2.7.3",
+    "ruff>=0.4.0",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.bandit]
+exclude_dirs = [".venv", "venv", "tests", "nextjs_frontend", "node_modules", ".git"]
+skips = ["B101"]

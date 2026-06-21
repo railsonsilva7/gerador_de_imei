@@ -1,4 +1,4 @@
-import random
+import secrets
 
 def calculate_luhn_check_digit(number_str):
     """
@@ -22,7 +22,8 @@ def generate_imeis(prefix, count=50000):
     # IMEI is usually 15 digits. Prefix is 8 digits, we need 6 random + 1 check digit.
     for _ in range(count):
         # Generate 6 random digits
-        body = prefix + ''.join([str(random.randint(0, 9)) for _ in range(6)])
+        body = prefix + ''.join([str(secrets.choice(range(10))) for _ in range(6)])
+
         # Calculate the 15th digit (Luhn)
         check_digit = calculate_luhn_check_digit(body)
         imeis.append(body + str(check_digit))

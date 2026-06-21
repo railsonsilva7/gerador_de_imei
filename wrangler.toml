@@ -7,5 +7,5 @@ compatibility_flags = ["python_workers"]
 # route = "api.seusite.com/*"
 
 [build]
-# O build para python workers é tratado internamente pela própria Cloudflare usando as dependências do requirements.txt ou pyproject.toml
-command = ""
+# Delegando o processo de build para o Makefile para centralizar as automações
+command = "make cf-build"
