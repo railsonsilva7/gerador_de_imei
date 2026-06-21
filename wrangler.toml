@@ -1,4 +1,4 @@
-name = "gerador-de-imei"
+name = "geradordeimei"
 main = "api.py"
 compatibility_date = "2024-04-05"
 compatibility_flags = ["python_workers"]
