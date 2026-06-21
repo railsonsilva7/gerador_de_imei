@@ -1,0 +1,5 @@
+nextjs_frontend/
+tests/
+.venv/
+__pycache__/
+*.log
