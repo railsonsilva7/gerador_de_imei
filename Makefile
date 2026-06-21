@@ -55,8 +55,8 @@ clean:
 # --- Cloudflare ---
 
 cf-build:
-	@echo "📦 Extraindo dependências (requirements.txt) via uv para a Cloudflare..."
-	uv export --format requirements-txt --no-dev --no-hashes --no-emit-project --no-header --no-annotate > requirements.txt
+	@echo "📦 Criando dependências mínimas (requirements.txt) para o Pyodide na Cloudflare..."
+	printf "fastapi\npydantic\nurllib3\n" > requirements.txt
 
 cf-dev: cf-build
 	@echo "🔥 Iniciando ambiente de desenvolvimento Cloudflare local..."
